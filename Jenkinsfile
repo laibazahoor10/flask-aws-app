@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Code Build') {
             steps {
-                sh 'pip3 install flask==3.0.0 pytest --break-system-packages'
+                sh 'python3 -m pip install flask==3.0.0 pytest --break-system-packages'
                 echo 'Code Build Done!'
             }
         }
