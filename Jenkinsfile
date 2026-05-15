@@ -25,10 +25,11 @@ pipeline {
             }
         }
         stage('Containerized Selenium Testing') {
-            steps {
-                sh 'docker ps | grep flask-app'
-                echo 'Selenium Stage Done!'
-            }
+             steps {
+        sh 'docker build -t selenium-tests -f Dockerfile.selenium .'
+        sh 'docker run --network host --rm selenium-tests'
+        echo 'Selenium Stage Done!'
         }
+       }
     }
 }
