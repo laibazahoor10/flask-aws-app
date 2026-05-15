@@ -3,13 +3,13 @@ pipeline {
     stages {
         stage('Code Build') {
             steps {
-                sh 'sudo pip3 install flask==3.0.0 pytest --break-system-packages'
+                sh 'pip3 install flask==3.0.0 pytest --break-system-packages'
                 echo 'Code Build Done!'
             }
         }
         stage('Unit Testing') {
             steps {
-                sh 'sudo python3 -m pytest test_unit.py -v'
+                sh 'python3 -m pytest test_unit.py -v'
                 echo 'Unit Testing Done!'
             }
         }
